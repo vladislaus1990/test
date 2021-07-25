@@ -4,6 +4,7 @@
 <meta charset="UTF-8"> 
 <title>...</title> 
 <link rel="stylesheet" type="text/css" href="style.css"> 
+<script src="https://use.fontawesome.com/179054da48.js"></script>
 </head>
 <body> 
 
@@ -35,7 +36,7 @@ foreach($comments as $value) {
     $connection->exec("INSERT INTO `commentaries` (`id`, `postId`, `name`, `email`, `body`) VALUES ('".$value['id']."', '".$value['postId']."', '".$value['name']."', '".$value['email']."', '".$value['body']."')");
  }
 
-echo '<p class="count">В базе данных ' .count($posts). ' записей и ' .count($comments ). ' комментариев</p>';
+echo '<p class="count"><i class="fa fa-database" aria-hidden="true"></i> В базе данных ' .count($posts). ' записей и ' .count($comments ). ' комментариев</p>';
 
 ?>
 
@@ -48,7 +49,7 @@ console.log('<?php echo 'Загружено '.count($posts).' записей и 
 
 <form action="" method="POST" class="form">
     <input name="search" placeholder="Поиск записи по комментарию" minlength="3" required>
-    <button type="submit">Найти</button>
+    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i> Найти</button>
 </form>
 
 
