@@ -64,7 +64,7 @@ if(!empty($search)) {
             
             foreach($connection->query("SELECT * FROM `posts` WHERE id='".$row['postId']."'") as $post) {
                 echo '<h2>'. $post['title'] . '</h2>';
-                echo '<i class="fa fa-comment-o" aria-hidden="true"></i> '.$row['body'] .'<hr>';
+                echo str_replace($search, '<mark>'.$search.'</mark>', $row['body']) .'<hr>'; 
     }
 }
 
