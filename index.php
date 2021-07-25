@@ -9,7 +9,6 @@
 <body> 
 
 <?php
-
 // Проверка существования БД. Если БД несуществует, выводим кнопку для создания БД и таблиц
 try {
 	$connection = new PDO('mysql:dbname=test;host=localhost', 'root', 'root');
@@ -48,10 +47,9 @@ console.log('<?php echo 'Загружено '.count($posts).' записей и 
 
 
 <form action="" method="POST" class="form">
-    <input name="search" placeholder="Поиск записи по комментарию" minlength="3" required>
+    <input name="search" placeholder="Поиск записи по комментарию" required>
     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i> Найти</button>
 </form>
-
 
 
 <?php
@@ -59,19 +57,22 @@ console.log('<?php echo 'Загружено '.count($posts).' записей и 
 $search = $_POST['search'];
 
 if(!empty($search)) {
-
-foreach($result = $connection->query("SELECT * FROM `commentaries` WHERE body LIKE '".$search."%'") as $row) {
-
-    foreach($connection->query("SELECT * FROM `posts` WHERE id='".$row['postId']."'") as $post) {
-        echo '<h2>'. $post['title'] . '</h2>';
-        echo '<i class="fa fa-comment-o" aria-hidden="true"></i>
-        '.$row['body'] .'<hr>';
+    
+    if(strlen($search) >= 3) {
+        
+        foreach($result = $connection->query("SELECT * FROM `commentaries` WHERE body LIKE '".$search."%'") as $row) {
+            
+            foreach($connection->query("SELECT * FROM `posts` WHERE id='".$row['postId']."'") as $post) {
+                echo '<h2>'. $post['title'] . '</h2>';
+                echo '<i class="fa fa-comment-o" aria-hidden="true"></i> '.$row['body'] .'<hr>';
     }
-
 }
 
 echo '<br><h3 align="center">Найдено ' .$result->rowCount(). ' совпадений</h3>';
 
+} else {
+    echo '<p class="error">Введите текст длиной более 3 символов!</p>';
+}
 }
 
 
