@@ -44,11 +44,11 @@ button:hover {
 
 .button {
     display:block;
-    margin:10px auto;
+    margin:120px auto;
     width:300px;
     padding:14px;
-    background:#efefef;
-    color:#222;
+    background:#6db63e;
+    color:#fff;
     text-align:center;
     text-decoration:none;
     border-radius:10px;
