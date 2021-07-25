@@ -2,7 +2,7 @@
 <html>
 <head> 
 <meta charset="UTF-8"> 
-<title>...</title> 
+<title>Тестовое задание для ИНЛАЙН</title> 
 <link rel="stylesheet" type="text/css" href="style.css"> 
 <script src="https://use.fontawesome.com/179054da48.js"></script>
 </head>
