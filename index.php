@@ -59,15 +59,17 @@ $search = $_POST['search'];
 
 if(!empty($search)) {
 
-foreach($connection->query("SELECT * FROM `commentaries` WHERE body LIKE '".$search."%'") as $row) {
+foreach($result = $connection->query("SELECT * FROM `commentaries` WHERE body LIKE '".$search."%'") as $row) {
 
-    
     foreach($connection->query("SELECT * FROM `posts` WHERE id='".$row['postId']."'") as $post) {
         echo '<h2>'. $post['title'] . '</h2>';
         echo $row['body'] .'<hr>';
     }
 
 }
+
+echo '<br><h3 align="center">Найдено ' .$result->rowCount(). ' совпадений</h3>';
+
 }
 
 
@@ -75,6 +77,7 @@ foreach($connection->query("SELECT * FROM `commentaries` WHERE body LIKE '".$sea
 
 </body>
 </html>
+
 
 
 
