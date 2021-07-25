@@ -68,6 +68,7 @@ foreach($result = $connection->query("SELECT * FROM `commentaries` WHERE body LI
 
 }
 
+// Вывод количества найденных совпадений
 echo '<br><h3 align="center">Найдено ' .$result->rowCount(). ' совпадений</h3>';
 
 }
