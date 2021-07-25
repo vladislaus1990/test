@@ -3,6 +3,7 @@ body {
     padding:0;
     width:1000px;
     background: url("bg.png") center top no-repeat;
+    line-height:1.7;
 }
 
 h2 {

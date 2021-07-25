@@ -44,8 +44,6 @@ echo '<p class="count"><i class="fa fa-database" aria-hidden="true"></i> В ба
 console.log('<?php echo 'Загружено '.count($posts).' записей и ' .count($comments) .' комментариев'; ?>');
 </script>
 
-
-
 <form action="" method="POST" class="form">
     <input name="search" placeholder="Поиск записи по комментарию" required>
     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i> Найти</button>
@@ -58,13 +56,14 @@ $search = $_POST['search'];
 
 if(!empty($search)) {
     
-    if(strlen($search) >= 3) {
+    if(strlen($search) >= 3) { // Проверка минимального количества символов для поиска
         echo '<h3>Вот что мы нашли по запросу "' .$search. '"</h3>';
+     
         foreach($result = $connection->query("SELECT * FROM `commentaries` WHERE body LIKE '%".$search."%'") as $row) {
             
             foreach($connection->query("SELECT * FROM `posts` WHERE id='".$row['postId']."'") as $post) {
                 echo '<h2>'. $post['title'] . '</h2>';
-                echo str_replace($search, '<mark>'.$search.'</mark>', $row['body']) .'<hr>'; 
+                echo str_replace($search, '<mark>'.$search.'</mark>', $row['body']) .'<hr>'; // выделение части искомого текста и вывод полного текста
     }
 }
 
