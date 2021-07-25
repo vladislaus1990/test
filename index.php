@@ -64,7 +64,8 @@ foreach($result = $connection->query("SELECT * FROM `commentaries` WHERE body LI
 
     foreach($connection->query("SELECT * FROM `posts` WHERE id='".$row['postId']."'") as $post) {
         echo '<h2>'. $post['title'] . '</h2>';
-        echo $row['body'] .'<hr>';
+        echo '<i class="fa fa-comment-o" aria-hidden="true"></i>
+        '.$row['body'] .'<hr>';
     }
 
 }
