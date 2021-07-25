@@ -67,7 +67,7 @@ if(!empty($search)) {
     }
 }
 
-echo '<br><h3 align="center">Найдено ' .$result->rowCount(). ' совпадений</h3>';
+echo '<br><h3 align="center">Найдено совпадений: ' .$result->rowCount(). '</h3>';
 
 } else {
     echo '<p class="error">Ошибка! Введите текст не менее 3 символов!</p>';
