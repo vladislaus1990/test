@@ -59,7 +59,7 @@ $search = $_POST['search'];
 if(!empty($search)) {
     
     if(strlen($search) >= 3) {
-        echo "<h3>Вот что мы нашли по запросу $search </h3>";
+        echo '<h3>Вот что мы нашли по запросу "' .$search. '"</h3>';
         foreach($result = $connection->query("SELECT * FROM `commentaries` WHERE body LIKE '%".$search."%'") as $row) {
             
             foreach($connection->query("SELECT * FROM `posts` WHERE id='".$row['postId']."'") as $post) {
