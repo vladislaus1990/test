@@ -16,6 +16,7 @@ h2 {
 
 input {
     display:inline-block;
+    outline:none;
     margin-top:50px;
     width:300px;
     padding:15px;
