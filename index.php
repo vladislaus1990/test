@@ -70,7 +70,7 @@ if(!empty($search)) {
 echo '<br><h3 align="center">Найдено ' .$result->rowCount(). ' совпадений</h3>';
 
 } else {
-    echo '<p class="error">Введите текст длиной более 3 символов!</p>';
+    echo '<p class="error">Ошибка! Введите текст не менее 3 символов!</p>';
 }
 }
 
