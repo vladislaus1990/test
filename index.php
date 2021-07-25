@@ -80,22 +80,11 @@ console.log('<?php echo 'Загружено '.count($posts).' записей и 
 </script>
 
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="utf-8" />
-<title></title>
-</head>
-<body>
-
-
 
 <form action="" method="POST">
     <input name="search" placeholder="Поиск записи по комментарию" minlength="3" required>
     <button type="submit">Найти</button>
 </form>
-</body>
-</html>
 
 
 <?php
@@ -104,9 +93,9 @@ $search = $_POST['search'];
 
 if(!empty($search)) {
 
+// Поиск комментария в БД
 foreach($connection->query("SELECT * FROM `commentaries` WHERE body LIKE '".$search."%'") as $row) {
-
-
+    // Поиск записи с id комментария
     foreach($connection->query("SELECT * FROM `posts` WHERE id='".$row['postId']."'") as $post) {
         echo '<h3>'. $post['title'] . '</h3>';
         echo $row['body'];
